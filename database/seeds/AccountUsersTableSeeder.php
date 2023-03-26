@@ -46,7 +46,9 @@ class AccountUsersTableSeeder extends Seeder
     protected function createSomeRandomAccounts()
     {
         factory(Account::class, 5)->create()->each(function ($account) {
-            $users = factory(User::class, rand(1, 2))->create();
+            $users = factory(User::class, rand(1, 2))->create([
+                'password' => bcrypt('secret')
+            ]);
             $users->map(function ($user) use ($account) {
                 $account->users()->save($user);
             });

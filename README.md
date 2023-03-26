@@ -52,6 +52,9 @@ Create an SQLite database. You can also use another database (MySQL, Postgres), 
 
 `touch database/database.sqlite`
 
+Run this spatie event sourcing to create migrations :
+`php artisan vendor:publish --provider="Spatie\EventSourcing\EventSourcingServiceProvider" --tag="migrations"`
+
 Run database migrations:
 
 `php artisan migrate`
